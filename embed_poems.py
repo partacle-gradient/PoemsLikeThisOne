@@ -9,7 +9,7 @@ Output: `processed/embeddings.npy` and `processed/embeddings_metadata.json`
 import json
 from pathlib import Path
 import numpy as np
-
+  
 
 def load_poems(jl_path):
     poems = []
@@ -33,7 +33,7 @@ def main(jl='processed/poems.jsonl', model_name='BAAI/bge-m3', out_dir='processe
     except Exception as e:
         raise SystemExit('sentence-transformers not installed. Run `pip install -r requirements.txt`')
 
-    model = SentenceTransformer(model_name)
+    model = SentenceTransformer(model_name,device='gpu')
     print(f"Using model: {model_name}")
     print(f"Computing embeddings for {len(texts)} poems...")
     embeddings = model.encode(texts, show_progress_bar=True, batch_size=64, convert_to_numpy=True)
