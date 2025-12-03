@@ -1,0 +1,5 @@
+requests>=2.20
+urllib3>=1.25
+sentence-transformers>=2.2.2
+numpy>=1.21
+tqdm>=4.0
